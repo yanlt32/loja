@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <title>FRAN BY FR - Maquiagem de Qualidade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff4d4d;
+      --primary-dark: #e63939;
+      --black: #000;
+      --white: #fff;
+      --gray-light: #f5f5f5;
+      --gray-medium: #ccc;
+      --gray-dark: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--gray-light);
+      color: var(--gray-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--black);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    header .logo {
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .icons a {
+      color: var(--white);
+      font-size: 18px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .icons a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Banner */
+    .banner {
+      background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.franbyfr.com.br/arquivos/fran-banner-gloss.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0 80px;
+      color: var(--white);
+      text-align: right;
+    }
+    
+    .banner h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease;
+    }
+    
+    .banner p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease 0.2s forwards;
+      opacity: 0;
+    }
+    
+    .banner button {
+      padding: 15px 40px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      animation: fadeInUp 1s ease 0.4s forwards;
+      opacity: 0;
+    }
+    
+    .banner button:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 77, 77, 0.6);
+    }
+    
+    /* Produtos */
+    .produtos {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: var(--white);
+    }
+    
+    .produtos h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .produtos h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .produto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .produto {
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .produto:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .produto-img {
+      height: 300px;
+      overflow: hidden;
+    }
+    
+    .produto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .produto:hover img {
+      transform: scale(1.05);
+    }
+    
+    .produto-info {
+      padding: 25px;
+    }
+    
+    .produto h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    
+    .produto p {
+      font-size: 0.95rem;
+      color: var(--gray-dark);
+      margin-bottom: 20px;
+    }
+    
+    .produto-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 15px;
+    }
+    
+    .produto button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .produto button:hover {
+      background-color: var(--primary);
+    }
+    
+    /* Modal do Carrinho */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: var(--white);
+      max-width: 600px;
+      width: 90%;
+      border-radius: 15px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
+    }
+    
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      background: var(--gray-light);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    
+    .cart-item-info {
+      flex: 1;
+      margin-left: 15px;
+      text-align: left;
+    }
+    
+    .cart-item-info h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .cart-item-info p {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+    
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cart-item-controls button {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.8rem;
+    }
+    
+    .cart-item-controls button:hover {
+      background: var(--primary-dark);
+    }
+    
+    .cart-total {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 20px 0;
+    }
+    
+    .cart-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .cart-buttons button {
+      padding: 12px 25px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .cart-buttons button:hover {
+      background-color: var(--primary);
+    }
+    
+    .empty-cart {
+      font-size: 1rem;
+      color: var(--gray-dark);
+      margin: 20px 0;
+    }
+    
+    /* PIX no Modal */
+    .pix-area {
+      display: none;
+      margin-top: 20px;
+    }
+    
+    .pix-area.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .pix-area p {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      margin-bottom: 15px;
+    }
+    
+    .pix-area img {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      border: 1px solid var(--gray-medium);
+      padding: 10px;
+      background: var(--white);
+    }
+    
+    .pix-instructions {
+      margin: 20px 0;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    
+    .pix-instructions ol {
+      padding-left: 20px;
+    }
+    
+    .pix-instructions li {
+      margin-bottom: 10px;
+    }
+    
+    code {
+      display: block;
+      margin: 20px auto;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      word-wrap: break-word;
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--gray-medium);
+    }
+    
+    .copy-btn {
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+    
+    .copy-btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .success-message {
+      color: #28a745;
+      font-weight: 600;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    /* Notificação */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 3000;
+      display: none;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .notification.active {
+      display: block;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 70px 20px 30px;
+      font-size: 14px;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-section {
+      margin-bottom: 20px;
+    }
+    
+    .footer-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+      bottom: -8px;
+      left: 0;
+    }
+    
+    .footer-section p, .footer-section a {
+      color: var(--gray-medium);
+      text-decoration: none;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .footer-section a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .newsletter input[type="email"] {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+    
+    .newsletter button {
+      padding: 12px;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter button:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      color: var(--gray-medium);
+      font-size: 0.8rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 992px) {
+      .banner {
+        padding: 0 40px;
+      }
+      
+      .banner h2 {
+        font-size: 2.8rem;
+      }
+      
+      .banner p {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--black);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        clip-path: circle(0px at 90% -10%);
+        transition: all 0.5s ease-out;
+        pointer-events: none;
+      }
+      
+      nav.active {
+        clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+      }
+      
+      nav a {
+        margin: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .banner {
+        height: 70vh;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        background-attachment: scroll;
+      }
+      
+      .banner h2 {
+        font-size: 2.2rem;
+      }
+      
+      .banner p {
+        font-size: 1.1rem;
+      }
+      
+      .produtos {
+        padding: 60px 20px;
+      }
+      
+      .produtos h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .banner h2 {
+        font-size: 1.8rem;
+      }
+      
+      .banner p {
+        font-size: 1rem;
+      }
+      
+      .banner button {
+        padding: 12px 30px;
+      }
+      
+      .produto-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-content {
+        padding: 20px;
+      }
+      
+      .modal-content h2 {
+        font-size: 1.5rem;
+      }
+      
+      .notification {
+        width: 90%;
+        right: 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">FRAN</div>
+    <nav id="main-nav">
+      <a href="#">Lábios</a>
+      <a href="https://www.franbyfr.com.br/olhos/">Olhos</a>
+      <a href="https://www.franbyfr.com.br/rosto/">Rosto</a>
+      <a href="https://www.franbyfr.com.br/skincare/">Skincare</a>
+      <a href="https://www.franbyfr.com.br/descubra-seu-tom/">Descubra seu tom</a>
+    </nav>
+    <div class="icons">
+      <a href="#"><i class="fas fa-search"></i></a>
+      <a href="#"><i class="fas fa-user"></i></a>
+      <a href="#" id="cart-icon" style="position: relative;">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h2>CORES E PRODUTOS<br>PARA TODOS OS GOSTOS</h2>
+    <p>Compre 5 glosses e cada um sai por R$30</p>
+    <button onclick="showCart()">Ver Carrinho</button>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <h2>LÁBIOS</h2>
+    <div class="produto-grid">
+      <div class="produto">
+        <div class="produto-img">
+          <img src="gold.png" alt="Glossip Gold">
+        </div>
+        <div class="produto-info">
+          <h3>Glossip Gold</h3>
+          <p>Gloss dourado com brilho intenso e textura confortável.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('Glossip Gold', 39.90, 'gold.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      <div class="produto">
+        <div class="produto-img">
+          <img src="liphoney.png" alt="Lip Honey">
+        </div>
+        <div class="produto-info">
+          <h3>Lip Honey</h3>
+          <p>Gloss com tom mel e alta hidratação para os lábios.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('Lip Honey', 39.90, 'liphoney.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      <div class="produto">
+        <div class="produto-img">
+          <img src="choco.png" alt="ChocoChilli">
+        </div>
+        <div class="produto-info">
+          <h3>ChocoChilli</h3>
+          <p>Combinação ousada de chocolate com um toque de pimenta.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('ChocoChilli', 39.90, 'choco.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      <div class="produto">
+        <div class="produto-img">
+          <img src="bamboo.png" alt="Scrub Stick Balm Bamboo">
+        </div>
+        <div class="produto-info">
+          <h3>Scrub Stick Balm Bamboo</h3>
+          <p>Gloss com efeito brilhante e toque refrescante de menta.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('Scrub Stick Balm Bamboo', 39.90, 'bamboo.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      <div class="produto">
+        <div class="produto-img">
+          <img src="bunny.png" alt="Bunny Gloss">
+        </div>
+        <div class="produto-info">
+          <h3>Bunny Gloss</h3>
+          <p>Gloss com tom berry vibrante e fórmula nutritiva.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('Bunny Gloss', 39.90, 'bunny.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+      <div class="produto">
+        <div class="produto-img">
+          <img src="pink.png" alt="Stick Tint Balm Pink">
+        </div>
+        <div class="produto-info">
+          <h3>Stick Tint Balm Pink</h3>
+          <p>Gloss rosa suave com brilho natural e longa duração.</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button onclick="addToCart('Stick Tint Balm Pink', 39.90, 'pink.png')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeCart()">✕</button>
+      <h2>Seu Carrinho</h2>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-total" id="cart-total">Total: R$ 0,00</div>
+      <div class="cart-buttons">
+        <button onclick="clearCart()">Limpar Carrinho</button>
+        <button onclick="gerarPix()">Finalizar Compra</button>
+      </div>
+      <div class="pix-area" id="pix-area">
+        <p>Complete sua compra escaneando o QR Code ou copiando o código abaixo:</p>
+        <img id="qr-img" src="" alt="QR Code Pix">
+        <div class="pix-instructions">
+          <ol>
+            <li>Abra o aplicativo do seu banco</li>
+            <li>Selecione a opção Pix</li>
+            <li>Escaneie o QR Code ou cole o código abaixo</li>
+            <li>Confirme o pagamento</li>
+          </ol>
+        </div>
+        <code id="pix-code"></code>
+        <button class="copy-btn" onclick="copiarCodigoPix()">Copiar Código</button>
+        <div class="success-message" id="success-message">Código copiado com sucesso!</div>
+        <p style="margin-top: 20px;">Após o pagamento, enviaremos um e-mail com a confirmação do pedido.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>FRAN BY FR</h3>
+        <p>A Fran by FR é uma marca de maquiagem criada pela Franciny Ehlke, com o propósito de oferecer produtos de alta qualidade para todos os estilos e tons de pele.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Atendimento</h3>
+        <a href="#">Central de Ajuda</a>
+        <a href="#">Trocas e Devoluções</a>
+        <a href="#">Fale Conosco</a>
+        <a href="#">Dúvidas Frequentes</a>
+      </div>
+      <div class="footer-section">
+        <h3>Institucional</h3>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Trabalhe Conosco</a>
+      </div>
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/franbyfr"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@franbyfr"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@franbyfr"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Receba novidades e promoções exclusivas!</p>
+        <form>
+          <input type="email" placeholder="Digite seu e-mail" required>
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Fran by FR - Todos os direitos reservados</p>
+      <p>CNPJ: 12.345.678/0001-90</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mainNav = document.getElementById('main-nav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Gerenciar Carrinho
+    let cart = [];
+    
+    function addToCart(name, price, image) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      updateCart();
+      showNotification(`${name} adicionado ao carrinho!`);
+    }
+    
+    function updateItemQuantity(name, change) {
+      const item = cart.find(item => item.name === name);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.name !== name);
+        }
+        updateCart();
+      }
+    }
+    
+    function clearCart() {
+      cart = [];
+      updateCart();
+      document.getElementById('pix-area').classList.remove('active');
+    }
+    
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      
+      cartItems.innerHTML = '';
+      let total = 0;
+      let itemCount = 0;
+      
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
+      } else {
+        // Calcular total de itens
+        itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        
+        // Aplicar desconto se houver 5 ou mais glosses
+        const applyDiscount = itemCount >= 5;
+        const displayPrice = applyDiscount ? 30.00 : 39.90;
+        
+        cart.forEach(item => {
+          const itemTotal = displayPrice * item.quantity;
+          total += itemTotal;
+          
+          const cartItem = document.createElement('div');
+          cartItem.classList.add('cart-item');
+          cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p>R$ ${displayPrice.toFixed(2)} x ${item.quantity} = R$ ${itemTotal.toFixed(2)}</p>
+              ${applyDiscount ? '<p style="color: #28a745;">Desconto aplicado: R$30 por gloss!</p>' : ''}
+            </div>
+            <div class="cart-item-controls">
+              <button onclick="updateItemQuantity('${item.name}', -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateItemQuantity('${item.name}', 1)">+</button>
+            </div>
+          `;
+          cartItems.appendChild(cartItem);
+        });
+      }
+      
+      cartCount.textContent = itemCount;
+      cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+      
+      // Salvar carrinho no localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
+    function showCart() {
+      document.getElementById('cart-modal').classList.add('active');
+      document.getElementById('pix-area').classList.remove('active');
+    }
+    
+    function closeCart() {
+      document.getElementById('cart-modal').classList.remove('active');
+    }
+    
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.add('active');
+      setTimeout(() => {
+        notification.classList.remove('active');
+      }, 3000);
+    }
+    
+    // Carregar carrinho do localStorage
+    window.addEventListener('load', () => {
+      const savedCart = localStorage.getItem('cart');
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+      }
+    });
+    
+    function gerarPixDinamico(valor) {
+      // Formatar valor para ter 2 casas decimais
+      const valorFormatado = parseFloat(valor).toFixed(2);
+      
+      // Dados da conta (SUBSTITUA COM SEUS DADOS REAIS)
+      const chavePix = '40370537807'; // CPF/CNPJ ou chave PIX válida
+      const nomeBeneficiario = 'FRAN BY FR';
+      const cidadeBeneficiario = 'SAO PAULO';
+      const txid = 'FRAN' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      
+      // Montar o payload PIX conforme padrão do BACEN (versão simplificada e funcional)
+      const payload = [
+        '000201', // Payload Format Indicator
+        '26', // Merchant Account Information
+        (15 + chavePix.length).toString().padStart(2, '0'), // Tamanho do campo
+        '0014br.gov.bcb.pix01' + chavePix.length.toString().padStart(2, '0') + chavePix,
+        '52040000', // Merchant Category Code
+        '5303986', // Transaction Currency (BRL)
+        '54' + (valorFormatado.length + 2).toString().padStart(2, '0') + valorFormatado,
+        '5802BR', // Country Code
+        '59' + nomeBeneficiario.length.toString().padStart(2, '0') + nomeBeneficiario,
+        '60' + cidadeBeneficiario.length.toString().padStart(2, '0') + cidadeBeneficiario,
+        '62' + (5 + txid.length).toString().padStart(2, '0') + '05' + txid.length.toString().padStart(2, '0') + txid,
+        '6304' // CRC16 placeholder
+      ].join('');
+      
+      // Calcular CRC16 (corrigido)
+      function calcularCRC16(payload) {
+        let crc = 0xFFFF;
+        for (let i = 0; i < payload.length; i++) {
+          crc ^= payload.charCodeAt(i) << 8;
+          for (let j = 0; j < 8; j++) {
+            crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) : (crc << 1);
+          }
+        }
+        return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+      }
+      
+      const crc = calcularCRC16(payload);
+      const payloadCompleto = payload + crc;
+      
+      // Gerar QR Code usando API pública
+      const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(payloadCompleto)}`;
+      
+      return {
+        codigo: payloadCompleto,
+        imagem: qrCodeUrl,
+        valor: valorFormatado
+      };
+    }
+
+    // Função gerarPix atualizada
+    async function gerarPix() {
+      if (cart.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+      
+      try {
+        // Calcular total com desconto
+        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const applyDiscount = itemCount >= 5;
+        const total = applyDiscount 
+          ? itemCount * 30.00 
+          : cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        
+        // Mostrar área PIX
+        const pixArea = document.getElementById('pix-area');
+        pixArea.classList.add('active');
+        document.getElementById('qr-img').src = '';
+        document.getElementById('pix-code').textContent = 'Gerando código PIX...';
+        
+        // Gerar PIX dinâmico
+        const pixData = gerarPixDinamico(total);
+        
+        // Exibir QR Code e código PIX
+        document.getElementById('qr-img').src = pixData.imagem;
+        document.getElementById('pix-code').textContent = pixData.codigo;
+        
+        // Adicionar instruções de valor
+        const pixInstructions = document.querySelector('.pix-instructions');
+        pixInstructions.innerHTML = `
+          <ol>
+            <li>Abra o aplicativo do seu banco</li>
+            <li>Selecione a opção Pix</li>
+            <li>Escaneie o QR Code ou cole o código abaixo</li>
+            <li>Confirme o valor de <strong>R$ ${pixData.valor}</strong></li>
+            <li>Finalize o pagamento</li>
+          </ol>
+          <p style="margin-top:10px;color:var(--primary);font-weight:600;">Verifique se o valor está correto antes de pagar!</p>
+        `;
+      } catch (error) {
+        console.error('Erro ao gerar PIX:', error);
+        document.getElementById('pix-code').textContent = 'Erro ao gerar código PIX. Por favor, tente novamente.';
+      }
+    }
+
+    // Função copiar código PIX (corrigida)
+    function copiarCodigoPix() {
+      const codigo = document.getElementById('pix-code').textContent;
+      
+      // Criar elemento temporário para copiar
+      const tempInput = document.createElement('textarea');
+      tempInput.value = codigo;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          const successMsg = document.getElementById('success-message');
+          successMsg.style.display = 'block';
+          setTimeout(() => {
+            successMsg.style.display = 'none';
+          }, 3000);
+        } else {
+          alert('Não foi possível copiar o código. Tente manualmente.');
+        }
+      } catch (err) {
+        alert('Erro ao copiar: ' + err);
+      }
+      
+      document.body.removeChild(tempInput);
+    }
+    // Mostrar carrinho ao clicar no ícone
+    document.getElementById('cart-icon').addEventListener('click', showCart);
+  </script>
+</body>
+</html>

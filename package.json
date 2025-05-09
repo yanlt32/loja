@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "fran-by-fr",
   "version": "1.0.0",
   "description": "Loja Fran by FR",
@@ -14,5 +14,16 @@
   },
   "devDependencies": {
     "nodemon": "3.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanlt32/loja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanlt32/loja/issues"
+  },
+  "homepage": "https://github.com/yanlt32/loja#readme"
 }

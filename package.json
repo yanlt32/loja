@@ -10,7 +10,7 @@
   "dependencies": {
     "express": "4.17.3",
     "cors": "2.8.5",
-    "qrcode-pix": "2.3.0"
+    "qrcode-pix": "^2.2.1"
   },
   "devDependencies": {
     "nodemon": "3.1.0"

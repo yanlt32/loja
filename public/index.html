@@ -422,18 +422,24 @@
     }
     
     .cart-buttons button {
-      padding: 12px 25px;
+      padding: 12px 30px;
       background-color: var(--black);
       color: var(--white);
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
     .cart-buttons button:hover {
       background-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(236, 20, 127, 0.4);
     }
     
     .empty-cart {
@@ -442,10 +448,113 @@
       margin: 20px 0;
     }
     
+    /* Estilização das Etapas do Checkout */
+    .checkout-step {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    
+    .checkout-step.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .checkout-step h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .checkout-step h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .checkout-step form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+    
+    .checkout-step label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .checkout-step input {
+      padding: 12px 15px;
+      border: 1px solid var(--gray-medium);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      width: 100%;
+      background: var(--gray-light);
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .checkout-step input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 8px rgba(236, 20, 127, 0.3);
+      background: var(--white);
+    }
+    
+    .frete-info {
+      margin-top: 15px;
+      padding: 20px;
+      background: var(--gray-light);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .frete-info p {
+      margin-bottom: 10px;
+      color: var(--gray-dark);
+    }
+    
+    .frete-info button {
+      padding: 10px 20px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 5px;
+      transition: var(--transition);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    
+    .frete-info button:hover {
+      background-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(236, 20, 127, 0.4);
+    }
+    
     /* PIX no Modal */
     .pix-area {
       display: none;
-      margin-top: 20px;
+      margin-top: 30px;
+      padding: 20px;
+      background: var(--gray-light);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .pix-area.active {
@@ -454,9 +563,9 @@
     }
     
     .pix-area p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--gray-dark);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     
     .pix-area img {
@@ -466,12 +575,15 @@
       border: 1px solid var(--gray-medium);
       padding: 10px;
       background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .pix-instructions {
       margin: 20px 0;
       text-align: left;
       font-size: 0.9rem;
+      color: var(--gray-dark);
     }
     
     .pix-instructions ol {
@@ -485,30 +597,34 @@
     code {
       display: block;
       margin: 20px auto;
-      background: #f8f9fa;
+      background: var(--white);
       padding: 15px;
-      border-radius: 5px;
+      border-radius: 10px;
       font-size: 0.85rem;
       word-wrap: break-word;
       max-width: 100%;
       overflow-x: auto;
       border: 1px solid var(--gray-medium);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     
     .copy-btn {
-      padding: 10px 20px;
+      padding: 10px 25px;
       background-color: var(--primary);
       color: var(--white);
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
       margin-top: 10px;
+      box-shadow: 0 3px 10px rgba(236, 20, 127, 0.3);
     }
     
     .copy-btn:hover {
       background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(236, 20, 127, 0.5);
     }
     
     .success-message {
@@ -516,6 +632,7 @@
       font-weight: 600;
       margin-top: 10px;
       display: none;
+      animation: fadeIn 0.3s ease;
     }
     
     /* Notificação */
@@ -902,27 +1019,89 @@
     <div class="modal-content">
       <button class="close-modal" onclick="closeCart()">✕</button>
       <h2>Seu Carrinho</h2>
-      <div class="cart-items" id="cart-items"></div>
-      <div class="cart-total" id="cart-total">Total: R$ 0,00</div>
-      <div class="cart-buttons">
-        <button onclick="clearCart()">Limpar Carrinho</button>
-        <button onclick="gerarPix()">Finalizar Compra</button>
-      </div>
-      <div class="pix-area" id="pix-area">
-        <p>Complete sua compra escaneando o QR Code ou copiando o código abaixo:</p>
-        <img id="qr-img" src="" alt="QR Code Pix">
-        <div class="pix-instructions">
-          <ol>
-            <li>Abra o aplicativo do seu banco</li>
-            <li>Selecione a opção Pix</li>
-            <li>Escaneie o QR Code ou cole o código abaixo</li>
-            <li>Confirme o pagamento</li>
-          </ol>
+      
+      <!-- Etapa 1: Resumo do Carrinho -->
+      <div id="step-cart" class="checkout-step active">
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Total: R$ 0,00</div>
+        <div class="cart-buttons">
+          <button onclick="clearCart()">Limpar Carrinho</button>
+          <button onclick="goToStep('personal-info')">Continuar</button>
         </div>
-        <code id="pix-code"></code>
-        <button class="copy-btn" onclick="copiarCodigoPix()">Copiar Código</button>
-        <div class="success-message" id="success-message">Código copiado com sucesso!</div>
-        <p style="margin-top: 20px;">Após o pagamento, enviaremos um e-mail com a confirmação do pedido.</p>
+      </div>
+      
+      <!-- Etapa 2: Dados Pessoais -->
+      <div id="step-personal-info" class="checkout-step">
+        <h2>Dados Pessoais</h2>
+        <form id="personal-info-form">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" required>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required>
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" required>
+          <div class="cart-buttons">
+            <button type="button" onclick="goToStep('cart')">Voltar</button>
+            <button type="submit">Continuar</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Etapa 3: Endereço e Frete -->
+      <div id="step-address" class="checkout-step">
+        <h2>Endereço de Entrega</h2>
+        <form id="address-form">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" required>
+          <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+          <div class="frete-info" id="frete-info">
+            <p>Informe o CEP para calcular o frete.</p>
+          </div>
+          <label for="rua">Rua</label>
+          <input type="text" id="rua" required>
+          <label for="numero">Número</label>
+          <input type="text" id="numero" required>
+          <label for="complemento">Complemento (opcional)</label>
+          <input type="text" id="complemento">
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" required>
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" required>
+          <label for="estado">Estado</label>
+          <input type="text" id="estado" required>
+          <div class="cart-buttons">
+            <button type="button" onclick="goToStep('personal-info')">Voltar</button>
+            <button type="submit">Continuar</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Etapa 4: Pagamento -->
+      <div id="step-payment" class="checkout-step">
+        <h2>Forma de Pagamento</h2>
+        <div class="cart-items" id="cart-items-payment"></div>
+        <div class="cart-total" id="cart-total-payment">Total: R$ 0,00</div>
+        <div class="frete-info" id="frete-selected">Frete: R$ 0,00</div>
+        <div class="cart-buttons">
+          <button onclick="goToStep('address')">Voltar</button>
+          <button onclick="gerarPix()">Pagar com PIX</button>
+        </div>
+        <div class="pix-area" id="pix-area">
+          <p>Complete sua compra escaneando o QR Code ou copiando o código abaixo:</p>
+          <img id="qr-img" src="" alt="QR Code Pix">
+          <div class="pix-instructions">
+            <ol>
+              <li>Abra o aplicativo do seu banco</li>
+              <li>Selecione a opção Pix</li>
+              <li>Escaneie o QR Code ou cole o código abaixo</li>
+              <li>Confirme o pagamento</li>
+            </ol>
+          </div>
+          <code id="pix-code"></code>
+          <button class="copy-btn" onclick="copiarCodigoPix()">Copiar Código</button>
+          <div class="success-message" id="success-message">Código copiado com sucesso!</div>
+          <p style="margin-top: 20px;">Após o pagamento, enviaremos um e-mail com a confirmação do pedido.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -987,6 +1166,11 @@
     
     // Gerenciar Carrinho
     let cart = [];
+    let checkoutData = {
+      personalInfo: {},
+      address: {},
+      frete: { value: 0, type: '' }
+    };
     
     function addToCart(name, price, image) {
       const existingItem = cart.find(item => item.name === name);
@@ -1012,21 +1196,26 @@
     
     function clearCart() {
       cart = [];
+      checkoutData.frete = { value: 0, type: '' };
       updateCart();
-      document.getElementById('pix-area').classList.remove('active');
+      goToStep('cart');
     }
     
     function updateCart() {
       const cartItems = document.getElementById('cart-items');
+      const cartItemsPayment = document.getElementById('cart-items-payment');
       const cartCount = document.getElementById('cart-count');
       const cartTotal = document.getElementById('cart-total');
+      const cartTotalPayment = document.getElementById('cart-total-payment');
       
       cartItems.innerHTML = '';
+      cartItemsPayment.innerHTML = '';
       let total = 0;
       let itemCount = 0;
       
       if (cart.length === 0) {
         cartItems.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
+        cartItemsPayment.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
       } else {
         // Calcular total de itens
         itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -1055,11 +1244,19 @@
             </div>
           `;
           cartItems.appendChild(cartItem);
+          
+          const cartItemPayment = cartItem.cloneNode(true);
+          cartItemPayment.querySelector('.cart-item-controls').remove();
+          cartItemsPayment.appendChild(cartItemPayment);
         });
       }
       
+      total += checkoutData.frete.value;
+      
       cartCount.textContent = itemCount;
       cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+      cartTotalPayment.textContent = `Total: R$ ${total.toFixed(2)}`;
+      document.getElementById('frete-selected').textContent = `Frete: ${checkoutData.frete.type || 'Não selecionado'} - R$ ${checkoutData.frete.value.toFixed(2)}`;
       
       // Salvar carrinho no localStorage
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -1067,11 +1264,12 @@
     
     function showCart() {
       document.getElementById('cart-modal').classList.add('active');
-      document.getElementById('pix-area').classList.remove('active');
+      goToStep('cart');
     }
     
     function closeCart() {
       document.getElementById('cart-modal').classList.remove('active');
+      document.getElementById('pix-area').classList.remove('active');
     }
     
     function showNotification(message) {
@@ -1081,6 +1279,76 @@
       setTimeout(() => {
         notification.classList.remove('active');
       }, 3000);
+    }
+    
+    // Navegação entre etapas
+    function goToStep(stepId) {
+      document.querySelectorAll('.checkout-step').forEach(step => {
+        step.classList.remove('active');
+      });
+      document.getElementById(`step-${stepId}`).classList.add('active');
+      document.getElementById('pix-area').classList.remove('active');
+    }
+    
+    // Manipular formulário de dados pessoais
+    document.getElementById('personal-info-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      checkoutData.personalInfo = {
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        telefone: document.getElementById('telefone').value
+      };
+      goToStep('address');
+    });
+    
+    // Manipular formulário de endereço
+    document.getElementById('address-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (checkoutData.frete.value === 0) {
+        alert('Por favor, calcule o frete antes de continuar.');
+        return;
+      }
+      checkoutData.address = {
+        cep: document.getElementById('cep').value,
+        rua: document.getElementById('rua').value,
+        numero: document.getElementById('numero').value,
+        complemento: document.getElementById('complemento').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value
+      };
+      goToStep('payment');
+      updateCart();
+    });
+    
+    // Calcular frete (simulado)
+    function calcularFrete() {
+      const cep = document.getElementById('cep').value;
+      const freteInfo = document.getElementById('frete-info');
+      
+      if (!cep.match(/^\d{5}-?\d{3}$/)) {
+        freteInfo.innerHTML = '<p style="color: red;">Por favor, insira um CEP válido.</p>';
+        return;
+      }
+      
+      // Simulação de cálculo de frete
+      const freteOptions = [
+        { type: 'PAC', value: 15.90 },
+        { type: 'SEDEX', value: 25.90 }
+      ];
+      
+      freteInfo.innerHTML = `
+        <p><strong>PAC:</strong> R$ ${freteOptions[0].value.toFixed(2)} (5-7 dias úteis)</p>
+        <p><strong>SEDEX:</strong> R$ ${freteOptions[1].value.toFixed(2)} (1-2 dias úteis)</p>
+        <button onclick="selectFrete('PAC', ${freteOptions[0].value})">Selecionar PAC</button>
+        <button onclick="selectFrete('SEDEX', ${freteOptions[1].value})">Selecionar SEDEX</button>
+      `;
+    }
+    
+    function selectFrete(type, value) {
+      checkoutData.frete = { type, value };
+      updateCart();
+      document.getElementById('frete-info').innerHTML = `<p>Frete selecionado: ${type} - R$ ${value.toFixed(2)}</p>`;
     }
     
     // Carregar carrinho do localStorage
@@ -1102,23 +1370,22 @@
       const cidadeBeneficiario = 'SAO PAULO';
       const txid = 'FRAN' + Math.random().toString(36).substring(2, 10).toUpperCase();
       
-      // Montar o payload PIX conforme padrão do BACEN (versão simplificada e funcional)
+      // Montar o payload PIX conforme padrão do BACEN
       const payload = [
-        '000201', // Payload Format Indicator
-        '26', // Merchant Account Information
-        (15 + chavePix.length).toString().padStart(2, '0'), // Tamanho do campo
+        '000201',
+        '26',
+        (15 + chavePix.length).toString().padStart(2, '0'),
         '0014br.gov.bcb.pix01' + chavePix.length.toString().padStart(2, '0') + chavePix,
-        '52040000', // Merchant Category Code
-        '5303986', // Transaction Currency (BRL)
+        '52040000',
+        '5303986',
         '54' + (valorFormatado.length + 2).toString().padStart(2, '0') + valorFormatado,
-        '5802BR', // Country Code
+        '5802BR',
         '59' + nomeBeneficiario.length.toString().padStart(2, '0') + nomeBeneficiario,
         '60' + cidadeBeneficiario.length.toString().padStart(2, '0') + cidadeBeneficiario,
         '62' + (5 + txid.length).toString().padStart(2, '0') + '05' + txid.length.toString().padStart(2, '0') + txid,
-        '6304' // CRC16 placeholder
+        '6304'
       ].join('');
       
-      // Calcular CRC16 (corrigido)
       function calcularCRC16(payload) {
         let crc = 0xFFFF;
         for (let i = 0; i < payload.length; i++) {
@@ -1133,7 +1400,6 @@
       const crc = calcularCRC16(payload);
       const payloadCompleto = payload + crc;
       
-      // Gerar QR Code usando API pública
       const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(payloadCompleto)}`;
       
       return {
@@ -1142,8 +1408,7 @@
         valor: valorFormatado
       };
     }
-
-    // Função gerarPix atualizada
+    
     async function gerarPix() {
       if (cart.length === 0) {
         alert('Seu carrinho está vazio!');
@@ -1151,27 +1416,23 @@
       }
       
       try {
-        // Calcular total com desconto
         const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
         const applyDiscount = itemCount >= 5;
-        const total = applyDiscount 
+        let total = applyDiscount 
           ? itemCount * 30.00 
           : cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        total += checkoutData.frete.value;
         
-        // Mostrar área PIX
         const pixArea = document.getElementById('pix-area');
         pixArea.classList.add('active');
         document.getElementById('qr-img').src = '';
         document.getElementById('pix-code').textContent = 'Gerando código PIX...';
         
-        // Gerar PIX dinâmico
         const pixData = gerarPixDinamico(total);
         
-        // Exibir QR Code e código PIX
         document.getElementById('qr-img').src = pixData.imagem;
         document.getElementById('pix-code').textContent = pixData.codigo;
         
-        // Adicionar instruções de valor
         const pixInstructions = document.querySelector('.pix-instructions');
         pixInstructions.innerHTML = `
           <ol>
@@ -1188,12 +1449,10 @@
         document.getElementById('pix-code').textContent = 'Erro ao gerar código PIX. Por favor, tente novamente.';
       }
     }
-
-    // Função copiar código PIX (corrigida)
+    
     function copiarCodigoPix() {
       const codigo = document.getElementById('pix-code').textContent;
       
-      // Criar elemento temporário para copiar
       const tempInput = document.createElement('textarea');
       tempInput.value = codigo;
       document.body.appendChild(tempInput);
@@ -1216,7 +1475,7 @@
       
       document.body.removeChild(tempInput);
     }
-    // Mostrar carrinho ao clicar no ícone
+    
     document.getElementById('cart-icon').addEventListener('click', showCart);
   </script>
 </body>
